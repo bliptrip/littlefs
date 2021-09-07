@@ -49,9 +49,10 @@ extern "C"
 // code footprint
 
 // Logging functions
+extern int lfs_trace(const char* fmt, ...); //Defined elsewhere to customize how printing is done
+
 #ifndef LFS_TRACE
 #ifdef LFS_YES_TRACE
-extern int lfs_trace(const char* fmt, ...); //Defined elsewhere to customize how printing is done
 #define LFS_TRACE_(fmt, ...) lfs_trace("%s:%d:trace: " fmt "%s\n", __FILE__, __LINE__, __VA_ARGS__)
 #define LFS_TRACE(...) LFS_TRACE_(__VA_ARGS__, "")
 #else
